@@ -18,7 +18,70 @@
 		<link rel="stylesheet" href="assets/css/style.css">
     </head>
     <body>
+         <script>
+      // Disable right-click
+      document.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
+      });
+  
+      // Disable specific keyboard shortcuts
+      document.addEventListener('keydown', function(event) {
+        // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U, and Cmd+Option+I for macOS
+        if (
+          event.key === 'F12' || // F12
+          (event.ctrlKey && event.shiftKey && event.key === 'I') || // Ctrl+Shift+I
+          (event.ctrlKey && event.shiftKey && event.key === 'J') || // Ctrl+Shift+J
+          (event.ctrlKey && event.key === 'U') || // Ctrl+U
+          (event.metaKey && event.altKey && event.key === 'I') // Cmd+Option+I for macOS
+        ) {
+          event.preventDefault();
+        }
+      });
+  
+      // Prevent dragging
+      document.addEventListener('dragstart', function(event) {
+        event.preventDefault();
+      });
+  
+      // Disable copying
+      document.addEventListener('copy', function(event) {
+        event.preventDefault();
+      });
+
+       
         
+           // Function to redirect to a different page
+           function redirectToWarning() {
+            window.location.href = "https://upload.wikimedia.org/wikipedia/commons/e/eb/Givingthefinger.jpg"; // Replace "warning.html" with the desired page
+        }
+
+        // Detect key combinations for Ctrl+U, Ctrl+Shift+C, F12
+        document.addEventListener("keydown", (event) => {
+            // Detect Ctrl+U
+            if (event.ctrlKey && event.key === "u") {
+                event.preventDefault();
+                redirectToWarning();
+            }
+
+            // Detect Ctrl+Shift+C
+            if (event.ctrlKey && event.shiftKey && event.key === "C") {
+                event.preventDefault();
+                redirectToWarning();
+            }
+
+            // Detect F12
+            if (event.key === "F12") {
+                event.preventDefault();
+                redirectToWarning();
+            }
+        });
+
+        // Detect right-click
+        document.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+            redirectToWarning();
+        });
+    </script>
         <!-- ========================= main start ========================= -->
         <main class="main-06">
             <!-- header start  -->
